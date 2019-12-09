@@ -42,7 +42,6 @@
     "babel-cli": "^6.26.0",
     "babel-plugin-module-extension": "^0.1.1",
     "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
     "esm": "^3.2.25"
   }
 }
