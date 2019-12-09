@@ -1,0 +1,48 @@
+{
+  "name": "commonesm",
+  "version": "1.0.0",
+  "description": "A module that can be bare-imported with both CommonJS and ESM",
+  "scripts": {
+    "build": "babel *.mjs --out-dir dist",
+    "prepublishOnly": "npm run build",
+    "test": "ava"
+  },
+  "module": "./index.js",
+  "main": "./dist/index.js",
+  "author": "Larry Davis <lazdnet@gmail.com>",
+  "license": "BSD",
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "module-extension",
+        {
+          "mjs": "js"
+        }
+      ]
+    ]
+  },
+  "ava": {
+    "babel": false,
+    "require": [
+      "esm"
+    ]
+  },
+  "devDependencies": {
+    "ava": "^2.4.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-module-extension": "^0.1.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "esm": "^3.2.25"
+  }
+}
