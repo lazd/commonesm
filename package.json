@@ -7,7 +7,7 @@
     "prepublishOnly": "npm run build",
     "test": "ava"
   },
-  "module": "./index.js",
+  "module": "./index.mjs",
   "main": "./dist/index.js",
   "author": "Larry Davis <lazdnet@gmail.com>",
   "license": "BSD",
