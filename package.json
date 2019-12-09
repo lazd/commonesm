@@ -3,45 +3,36 @@
   "version": "1.0.0",
   "description": "A module that runs tests with ava and can be bare-imported with both CommonJS and ESM",
   "scripts": {
-    "build": "babel *.mjs --out-dir dist",
+    "build": "babel *.js --out-dir dist",
     "prepublishOnly": "npm run build",
-    "test": "ava"
+    "test": "jest"
   },
-  "module": "./index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./index.js"
+    }
+  },
+  "type": "module",
   "main": "./dist/index.js",
+  "module": "./index.js",
   "author": "Larry Davis <lazdnet@gmail.com>",
   "license": "Apache-2.0",
   "babel": {
     "presets": [
       [
-        "env",
+        "@babel/preset-env",
         {
           "targets": {
             "node": "current"
           }
         }
       ]
-    ],
-    "plugins": [
-      [
-        "module-extension",
-        {
-          "mjs": "js"
-        }
-      ]
-    ]
-  },
-  "ava": {
-    "babel": false,
-    "require": [
-      "esm"
     ]
   },
   "devDependencies": {
-    "ava": "^2.4.0",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-module-extension": "^0.1.1",
-    "babel-preset-env": "^1.7.0",
-    "esm": "^3.2.25"
+    "@babel/cli": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "jest": "^24.9.0"
   }
 }
